@@ -26,5 +26,15 @@ class Dice(commands.Cog):
 
         await ctx.send(result)
 
+    @commands.command(name='roll_advantage', help='Rolls two d20s and takes the higher result.')
+    async def roll_advantage(self, ctx):
+        result = max(random.randint(1, 20), random.randint(1, 20))
+        await ctx.send(result)
+
+    @commands.command(name='roll_disadvantage', help='Rolls two d20s and takes the lower result.')
+    async def roll_disadvantage(self, ctx):
+        result = min(random.randint(1, 20), random.randint(1, 20))
+        await ctx.send(result)
+
 def setup(bot):
     bot.add_cog(Dice(bot))
